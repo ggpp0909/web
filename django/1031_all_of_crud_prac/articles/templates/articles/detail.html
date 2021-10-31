@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  DETAIL
+{% endblock title %}
+
+{% block content %}
+  <h1>DETAIL PAGE</h1>
+  <p>{{article.pk}}번째 글</p>
+  <p>제목 : {{article.title}}</p>
+  <p>내용 : {{article.content}}</p>
+  <p>{{article.image}}</p>
+  <img src="{% static 'articles/2021/10/31/지슬.png' %}" alt="">
+  <p>생성시간 : {{article.created_at}}</p>
+  <p>수정시간 : {{article.updated_at}}</p>
+
+{% endblock content %}

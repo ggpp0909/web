@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  INDEX
+{% endblock title %}
+
+{% block content %}
+  <a href="{% url 'articles:create' %}">CREATE</a>
+  <h1>INDEX PAGE</h1>
+  {% for article in articles %}
+    <p>{{ article.pk }}번 째</p>
+      <p>
+        <a href="{% url 'articles:detail' article.pk %}">
+          {{ article.title }}
+        </a>
+      </p>
+    <hr>
+  {% empty %}
+    <p>게시글이 없어용</p>
+  {% endfor %}
+{% endblock content %}
