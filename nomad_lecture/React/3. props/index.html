@@ -6,6 +6,7 @@
   <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script type="text/babel">
 
     function Btn({ text, onClick }) {
@@ -22,15 +23,17 @@
       {text}
       </button>
     }
-    const MemorizedBtn = React.memo(Btn)
-
+    Btn.propTypes = {
+      text: PropTypes.string,
+      fontSize: PropTypes.number
+    }
     function App(){
       const [value, setValue] = React.useState("Save Changes")
       const changeValue = () => setValue("Revert Changes")
       return (
         <div>
-          <MemorizedBtn text={value} onClick={changeValue} />
-          <MemorizedBtn text="Continue" />
+          <Btn text={value} onClick={changeValue} />
+          <Btn text="Continue" />
         </div>
       )
     }
