@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    function Btn({ banana, big }) {
+      return <button style={{
+        backgroundColor:"tomato",
+        color:"white",
+        padding:"10px 20px",
+        border:0,
+        borderRadius:10,
+        fontSize: big ? 18 : 16
+      }}>
+      {banana}
+      </button>
+    }
+
+
+    function App(){
+      return (
+        <div>
+          <Btn banana="Save changes" big={true}/>
+          <Btn banana="Continue" big={false}/>
+        </div>
+      )
+    }
+    const root = document.querySelector("#root")
+    ReactDOM.render(<App/>, root)
+  </script>
+</html>
