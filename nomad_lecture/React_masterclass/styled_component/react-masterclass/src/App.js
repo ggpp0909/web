@@ -4,29 +4,26 @@ const Father = styled.div`
   display: flex;
 `
 
-const Box1 = styled.div`
-  background-color: teal;
+const Box = styled.div`
+  background-color: ${(props) => props.bgColor};
   width: 100px;
   height: 100px;
 `
 
-const Box2 = styled.div`
-  background-color: tomato;
-  width: 100px;
-  height: 100px;
-`
 
 const Text = styled.span`
   color: white;
 `
 
+const Circle = styled(Box)`
+  border-radius: 50px;
+`
+
 function App() {
   return (
     <Father>
-      <Box1>
-        <Text>Hello</Text>
-      </Box1>
-      <Box2></Box2>
+      <Circle bgColor="teal" />
+      <Box bgColor="tomato" />
     </Father>
   )
 }
