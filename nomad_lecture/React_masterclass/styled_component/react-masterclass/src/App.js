@@ -14,6 +14,10 @@ const Circle = styled(Box)`
   border-radius: 50px;
 `
 
+const Input = styled.input.attrs({required: true, minLength: 10})`
+  background-color: tomato;
+`
+
 const Button = styled.button`
   color: white;
   background-color: tomato;
@@ -24,6 +28,11 @@ const Button = styled.button`
 function App() {
   return (
     <Father>
+      <Input></Input>
+      <Input></Input>
+      <Input></Input>
+      <Input></Input>
+      <Input></Input>
       <Button>Log in</Button>
     </Father>
   )
