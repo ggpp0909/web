@@ -10,20 +10,21 @@ const Box = styled.div`
   height: 100px;
 `
 
-
-const Text = styled.span`
-  color: white;
-`
-
 const Circle = styled(Box)`
   border-radius: 50px;
+`
+
+const Button = styled.button`
+  color: white;
+  background-color: tomato;
+  border: 0;
+  border-radius: 15px;
 `
 
 function App() {
   return (
     <Father>
-      <Circle bgColor="teal" />
-      <Box bgColor="tomato" />
+      <Button>Log in</Button>
     </Father>
   )
 }
