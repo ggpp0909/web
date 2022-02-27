@@ -18,6 +18,9 @@ const animation = keyframes`
     border-radius: 0px;
   }
 `
+const Emoji = styled.span`
+  font-size: 36px;
+`
 
 const Box = styled.div`
   height: 100px;
@@ -27,13 +30,9 @@ const Box = styled.div`
   justify-content: center;
   align-items: center;
   animation: ${animation} 1s linear infinite;
-  span {
-    font-size: 36px;
+  ${Emoji} {
     &:hover {
-      font-size: 50px;
-    }
-    &:active {
-      opacity: 0;
+      font-size: 98px;
     }
   }
 `
@@ -42,8 +41,10 @@ function App() {
   return (
     <Wrapper>
       <Box>
-        <span>ㅎㅎ</span>
+        {/* Box에서 p태그여도 Emoji 태그에 적용시키도록 했기때문에 잘 작동함  */}
+        <Emoji as="p">ㅎㅎ</Emoji>
       </Box>
+      <Emoji as="p">ㅋㅋ</Emoji>
     </Wrapper>
   )
 }

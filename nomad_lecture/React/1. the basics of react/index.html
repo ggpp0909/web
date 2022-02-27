@@ -19,11 +19,44 @@
       </button>
     )
     const Container = () => (
-      <div>
-        <Title />
-        <Button />
-      </div>
+      <section class='section'>
+        <h1 class="title">Storage DApp </h1>
+        <table class='table'>
+            <tr>
+                <td>Contract Address</td>
+                <td><span id="contractAddr"></span></td>
+            </tr>
+            <tr>
+                <td>My Address</td>
+                <td><span id="accountAddr"></span></td>
+            </tr>
+            <tr>
+                <td>Lastest Block</td>
+                 <td><span id="lastBlock"></span></td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="button is-primary" onclick="retrieve()">retrieve</button>
+                </td>
+                <td><span id="storedData"></span></td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="button is-primary" onclick="store()">    store
+                    </button>
+                </td>
+                <td>
+                    <input class="input" id="newValue" placeholder="저장할 값" type="text"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Transaction Hash</td>
+                <td><span id="txHash"></span></td>
+            </tr>
+        </table>
+      </section>
     )
     ReactDOM.render(<Container/>, root)
+
   </script>
 </html>
