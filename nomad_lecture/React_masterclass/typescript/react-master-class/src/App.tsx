@@ -49,8 +49,8 @@ const Title = styled.div`
 function App() {
   return (
     <div>
-      <Circle bgColor="teal"></Circle>
-      <Circle bgColor="tomato"></Circle>
+      <Circle bgColor="teal" borderColor="black"></Circle>
+      <Circle text="hi" bgColor="tomato"></Circle>
     </div>
   );
 }
