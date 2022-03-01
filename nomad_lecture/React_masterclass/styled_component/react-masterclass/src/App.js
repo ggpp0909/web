@@ -3,7 +3,12 @@ import styled, { keyframes } from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
-`
+  background-color: ${(props) => props.theme.backgroundColor};
+  height: 100vh;
+  width: 100wh;
+  justify-content: center;
+  align-items: center;
+`;
 const animation = keyframes`
   0% {
     transform: rotate(0deg);
@@ -36,6 +41,9 @@ const Box = styled.div`
     }
   }
 `
+const Title = styled.div`
+  color: ${(props) => props.theme.textColor};
+`
 
 function App() {
   return (
@@ -45,6 +53,7 @@ function App() {
         <Emoji as="p">ㅎㅎ</Emoji>
       </Box>
       <Emoji as="p">ㅋㅋ</Emoji>
+      <Title>Hello</Title>
     </Wrapper>
   )
 }
