@@ -53,6 +53,8 @@ const Img = styled.img`
   margin-right: 10px;
 `
 
+
+
 interface CoinInterface {
   id: string,
   name: string,
@@ -91,7 +93,7 @@ const Coins = () => {
                 <Img
                   src={`https://cryptoicon-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`}
                 />
-                {coin.name} &rarr;
+                {coin.name}{` `} &rarr;
               </Link>
             </Coin>
           ))}
