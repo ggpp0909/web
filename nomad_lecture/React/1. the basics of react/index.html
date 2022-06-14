@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.querySelector("#root")
+    const Title = () => (
+      <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+        Hello I'm a title
+      </h3>
+    )
+    const Button = () => (
+      <button style={{backgroundColor:"tomato",}} onClick={() => console.log("im clicked")}>
+        Click me
+      </button>
+    )
+    const Container = () => (
+      <section class='section'>
+        <h1 class="title">Storage DApp </h1>
+        <table class='table'>
+            <tr>
+                <td>Contract Address</td>
+                <td><span id="contractAddr"></span></td>
+            </tr>
+            <tr>
+                <td>My Address</td>
+                <td><span id="accountAddr"></span></td>
+            </tr>
+            <tr>
+                <td>Lastest Block</td>
+                 <td><span id="lastBlock"></span></td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="button is-primary" onclick="retrieve()">retrieve</button>
+                </td>
+                <td><span id="storedData"></span></td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="button is-primary" onclick="store()">    store
+                    </button>
+                </td>
+                <td>
+                    <input class="input" id="newValue" placeholder="저장할 값" type="text"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Transaction Hash</td>
+                <td><span id="txHash"></span></td>
+            </tr>
+        </table>
+      </section>
+    )
+    ReactDOM.render(<Container/>, root)
+
+  </script>
+</html>
