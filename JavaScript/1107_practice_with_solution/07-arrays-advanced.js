@@ -15,15 +15,15 @@ const trips = [
 // }
 // console.log(result)
 
-// map
-const speeds = trips.map(function (trip) {
-  return trip.distance / trip.time
-})
+// // map
+// const speeds = trips.map(function (trip) {
+//   return trip.distance / trip.time
+// })
 
-// 1 단계
-const speeds = trips.map((trip) => {
-  return trip.distance / trip.time
-})
+// // 1 단계
+// const speeds = trips.map((trip) => {
+//   return trip.distance / trip.time
+// })
 
 // 2 단계
 const speeds = trips.map(trip => trip.distance / trip.time)
