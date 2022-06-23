@@ -71,6 +71,20 @@ const Chart = () => {
               axisBorder: {
                 show: false,
               },
+              categories: chartdata?.map((price) =>
+                Number(price.time_close)
+              ) as number[],
+              type: "datetime",
+            },
+            fill: {
+              type: "gradient",
+              gradient: { gradientToColors: ["#0be881"], stops: [0, 100] },
+            },
+            colors: ["#0fbcf9"],
+            tooltip: {
+              y: {
+                formatter: (value) => `$${value.toFixed(3)}`,
+              },
             },
           }}
         />
