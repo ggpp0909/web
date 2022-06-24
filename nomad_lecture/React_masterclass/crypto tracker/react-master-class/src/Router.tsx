@@ -1,14 +1,19 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Chart from "./routes/Chart";
 import Coin from "./routes/Coin";
 import Coins from "./routes/Coins";
 import Price from "./routes/Price";
 
-const Router = () => {
+interface IRouterProps {
+  toggleDark: () => void;
+}
+
+const Router: React.FC<IRouterProps> = ({ toggleDark }) => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Coins />} />
+        <Route path="/" element={<Coins toggleDark={toggleDark} />} />
         <Route path="/:coinId" element={<Coin />}>
           <Route path="chart" element={<Chart />} />
           <Route path="price" element={<Price />} />
@@ -16,6 +21,6 @@ const Router = () => {
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
-export default Router
+export default Router;
