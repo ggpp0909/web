@@ -64,11 +64,7 @@ interface ICoin {
   type: string;
 }
 
-interface ICoinsProps {
-  toggleDark: () => void;
-}
-
-const Coins: React.FC<ICoinsProps> = ({ toggleDark }) => {
+const Coins: React.FC = () => {
   const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
   // const [coins, setCoins] = useState<CoinInterface[]>([]);
   // const [loading, setLoading] = useState<boolean>(true);
@@ -89,7 +85,6 @@ const Coins: React.FC<ICoinsProps> = ({ toggleDark }) => {
       <Header>
         <Title>코인</Title>
       </Header>
-      <button onClick={toggleDark}>Toggle Dark Mode</button>
       {isLoading ? (
         <Loader>"Loading..."</Loader>
       ) : (
