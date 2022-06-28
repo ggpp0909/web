@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const ToDoList = () => {
-  const [toDo, setTodo] = useState("");
+  const [toDo, setTodo] = useState<string>("");
   const onChange = (event: React.FormEvent<HTMLInputElement>) => {
     const {
       currentTarget: { value },
