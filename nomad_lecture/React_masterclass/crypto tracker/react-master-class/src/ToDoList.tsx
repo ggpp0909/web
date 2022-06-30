@@ -17,7 +17,7 @@ const ToDoList = () => {
     <div>
       <form onSubmit={onSubmit}>
         <input onChange={onChange} value={toDo} placeholder="Write a to do" />
-        <button>Add</button>
+        <button>ADD</button>
       </form>
     </div>
   );
