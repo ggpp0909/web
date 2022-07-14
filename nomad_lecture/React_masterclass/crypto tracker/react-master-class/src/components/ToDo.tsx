@@ -8,6 +8,13 @@ function ToDo({ text, category, id }: IToDo) {
     const {
       currentTarget: { name },
     } = event;
+    setToDos((oldToDos) => {
+      const targetIndex = oldToDos.findIndex((toDo) => toDo.id === id); // 프롭으로 온 id와 같은 todo의 인덱스를 찾아줌
+      console.log(targetIndex);
+      const oldToDo = oldToDos[targetIndex];
+      const newToDo = { text, id, category: name };
+      return oldToDos;
+    });
   };
 
   return (
