@@ -11,18 +11,33 @@ function ToDo({ text, category, id }: IToDo) {
     setToDos((oldToDos) => {
       const targetIndex = oldToDos.findIndex((toDo) => toDo.id === id); // 프롭으로 온 id와 같은 todo의 인덱스를 찾아줌
       console.log(targetIndex);
-      const oldToDo = oldToDos[targetIndex];
-      const newToDo = { text, id, category: name };
-      return oldToDos;
+      const newToDo = { text, id, category: name as any };
+      return [
+        ...oldToDos.slice(0, targetIndex),
+        newToDo,
+        ...oldToDos.slice(targetIndex + 1),
+      ];
     });
   };
 
   return (
     <li>
       <span>{text}</span>
-      {category !== "DOING" && <button onClick={onClick}>Doing</button>}
-      {category !== "TO_DO" && <button onClick={onClick}>To Do</button>}
-      {category !== "DONE" && <button onClick={onClick}>Done</button>}
+      {category !== "DOING" && (
+        <button name="DOING" onClick={onClick}>
+          Doing
+        </button>
+      )}
+      {category !== "TO_DO" && (
+        <button name="TO_DO" onClick={onClick}>
+          To Do
+        </button>
+      )}
+      {category !== "DONE" && (
+        <button name="DONE" onClick={onClick}>
+          Done
+        </button>
+      )}
     </li>
   );
 }
