@@ -1,23 +1,15 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <!-- {{데이터바인딩}} 하는 이유
-  1. HTML에 하드코딩 해놓으면 나중에 변경 어려움
-  2. Vue의 실시간 자동 렌더링을 위해(중요)
-   -->
-  <!-- 속성도 데이터바인딩 가능
-  :속성="데이터이름" -->
-  <div>
-    <h4 class="red" :style="style">{{ products[0] }}</h4>
-    <p> {{ price1 }} 만원</p>
+<!-- 반복문 v-for
+v-for="작명 in 몇회" :kew="작명"
+몇회 자리에는 데이터 집어넣기 가능-->
+  <div class="menu">
+    <a v-for="(item, idx) in menus" :key="idx">{{item}}</a>
   </div>
-  <div>
-    <h4>{{ products[1] }}</h4>
-    <p> {{ price2  }} 만원</p>
+  <div v-for="(a, i) in 3" :key="i">
+    <h4>{{ products[i] }}</h4>
+    <p> {{ prices[i] }} 만원</p>
   </div>
-  <div>
-    <h4>{{ products[2] }}</h4>
-    <p> {{ price2  }} 만원</p>
-  </div>
+  
   
 </template>
 <script>
@@ -27,10 +19,9 @@ export default {
   // 자주 변할거 같은 데이터들은 밑의 데이터 통에다가 보관
   data () {
     return {
-      price1 : 60,
-      price2 : 70,
-      style: "color : blue",
-      products : ["역삼동원룸", "천호동원룸", "마포구원룸"]
+      menus: ["Home", "Products", "About"],
+      products : ["역삼동원룸", "천호동원룸", "마포구원룸"],
+      prices: [50, 243, 12]
     }
   },
   components: {
@@ -45,6 +36,17 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+.menu {
+  background: darkslateblue;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.menu a {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
 }
 </style>
