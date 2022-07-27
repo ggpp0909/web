@@ -1,5 +1,5 @@
 <template>
-  <div v-if="modalState" class="black-bg" @click="modalState = !modalState">
+  <div v-if="modalState" class="black-bg" @click.self="onClickModal">
     <div class="white-bg">
       <h4>상세페이지임</h4>
       <p>상세페이지 내용임</p>
@@ -10,36 +10,21 @@
     <a v-for="(item, idx) in menus" :key="idx">{{ item }}</a>
   </div>
 
-  <div>
-    <img src="./assets/room0.jpg" alt="" class="room-img" />
-    <h4 class="red" :style="style" @click="modalState = !modalState">
-      {{ products[0] }}
-    </h4>
-    <p>{{ price1 }} 만원</p>
-    <button @click="increase(0)">허위매물신고</button>
-    <span>신고수 : {{ reportNum[0] }}</span>
-  </div>
-  <div>
-    <img src="./assets/room1.jpg" alt="" class="room-img" />
-    <h4>{{ products[1] }}</h4>
-    <p>{{ price2 }} 만원</p>
-    <button @click="increase(1)">허위매물신고</button>
-    <span>신고수 : {{ reportNum[1] }}</span>
-  </div>
-  <div>
-    <img src="./assets/room2.jpg" alt="" class="room-img" />
-    <h4>{{ products[2] }}</h4>
-    <p>{{ price2 }} 만원</p>
-    <button @click="increase(2)">허위매물신고</button>
-    <span>신고수 : {{ reportNum[2] }}</span>
+  <div v-for="(item, idx) in onerooms" :key="idx">
+    <img :src="onerooms[idx].image" alt="" class="room-img" />
+    <h4>{{ onerooms[idx].title }}</h4>
+    <p>{{ onerooms[idx].price }}원</p>
   </div>
 </template>
 <script>
+import data from "./assets/oneroom";
+
 export default {
   name: "App",
   // 자주 변할거 같은 데이터들은 밑의 데이터 통에다가 보관
   data() {
     return {
+      onerooms: data,
       modalState: false,
       reportNum: [0, 0, 0],
       price1: 60,
@@ -53,6 +38,9 @@ export default {
   methods: {
     increase(i) {
       this.reportNum[i] += 1;
+    },
+    onClickModal() {
+      this.modalState = !this.modalState;
     },
   },
   components: {},
