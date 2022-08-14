@@ -1,33 +1,14 @@
 import { atom, selector } from "recoil";
 
-export enum Categories {
-  "TO_DO" = "TO_DO",
-  "DOING" = "DOING",
-  "DONE" = "DONE",
-}
-
-export interface IToDo {
-  text: string;
-  category: "TO_DO" | "DOING" | "DONE"; // 단순한 string이 아니라 세개만 된다고 제한 하는 방법
-  id: number;
-}
-
-export const categoryState = atom<IToDo["category"]>({
-  key: "category",
-  default: "TO_DO",
+export const minuteState = atom({
+  key: "minutes",
+  default: 0,
 });
 
-export const toDoState = atom<IToDo[]>({
-  key: "toDo",
-  default: [], // atom은 단순히 빈 array를 줄 뿐, atom의 output을 변형시키는 건 selector.
-});
-
-export const toDoSelector = selector({
-  // key, get필요
-  key: "toDoSelector",
+export const hourSelector = selector({
+  key: "hours",
   get: ({ get }) => {
-    const toDos = get(toDoState);
-    const category = get(categoryState);
-    return toDos.filter((toDo) => toDo.category === category);
+    const minutes = get(minuteState);
+    return minutes / 60;
   },
 });
