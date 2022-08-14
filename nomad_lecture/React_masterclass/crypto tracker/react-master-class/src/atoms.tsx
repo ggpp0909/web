@@ -1,12 +1,18 @@
 import { atom, selector } from "recoil";
 
+export enum Categories {
+  "TO_DO" = "TO_DO",
+  "DOING" = "DOING",
+  "DONE" = "DONE",
+}
+
 export interface IToDo {
   text: string;
   category: "TO_DO" | "DOING" | "DONE"; // 단순한 string이 아니라 세개만 된다고 제한 하는 방법
   id: number;
 }
 
-export const categoryState = atom({
+export const categoryState = atom<IToDo["category"]>({
   key: "category",
   default: "TO_DO",
 });
