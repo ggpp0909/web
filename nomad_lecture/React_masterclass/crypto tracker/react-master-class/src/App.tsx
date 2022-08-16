@@ -1,33 +1,28 @@
-import React from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { hourSelector, minuteState } from "./atoms";
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 
 function App() {
-  const [minutes, setMinutes] = useRecoilState(minuteState);
-  const [hours, setHours] = useRecoilState(hourSelector);
-  const onMinutesChange = (e: React.FormEvent<HTMLInputElement>) => {
-    setMinutes(+e.currentTarget.value);
-  };
-
-  const onHoursChange = (e: React.FormEvent<HTMLInputElement>) => {
-    setHours(+e.currentTarget.value);
-  };
-
+  const onDragEnd = () => {};
   return (
-    <div>
-      <input
-        value={minutes}
-        onChange={onMinutesChange}
-        type="number"
-        placeholder="Minutes"
-      />
-      <input
-        onChange={onHoursChange}
-        value={hours}
-        type="number"
-        placeholder="Hours"
-      />
-    </div>
+    // 드래그 앤 드롭 컨텍스트는 onDrageEnd(드래그가 끝나는 시점에 실행될 함수)와 children이 필수
+    <DragDropContext onDragEnd={onDragEnd}>
+      <div>
+        {/* droppableId 필수, droppable은 드롭할 수 있는 영역이 여러개일수 있기 때문에. 
+        droppable, draggable의 children은 funtion이어야함 */}
+        <Droppable droppableId="one">
+          {() => (
+            <ul>
+              {/* draggable은 draggableId, index 필수 */}
+              <Draggable draggableId="first" index={0}>
+                {() => <li>One</li>}
+              </Draggable>
+              <Draggable draggableId="second" index={1}>
+                {() => <li>Two</li>}
+              </Draggable>
+            </ul>
+          )}
+        </Droppable>
+      </div>
+    </DragDropContext>
   );
 }
 
