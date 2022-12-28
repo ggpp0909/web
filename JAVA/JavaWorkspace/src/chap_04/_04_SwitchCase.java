@@ -42,7 +42,7 @@ public class _04_SwitchCase {
             case 1:
                 System.out.println("전액 장학금");
                 break;
-            case 2: 
+            case 2:
             case 3:
                 System.out.println("반액 장학금");
                 break;
