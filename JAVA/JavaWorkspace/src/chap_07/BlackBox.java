@@ -53,7 +53,13 @@ public class BlackBox {
         System.out.println("서비스센터로 연결합니다.");
 
         // 클래스 변수는 클래스 메서드 내에서 수정 가능
-        // 인스턴스 변수는 클래스 메서드 내에서는 직접 접근 불가능
+        // 인스턴스 변수는 클래스 메서드 내에서는 직접 접근 불가
         canAutoReport = true;
+    }
+
+    void appendModelName(String modelName) {
+        // 앞은 인스턴스 변수, 뒤는 매개변수
+        // 두 변수 명이 같을 경우는 this 로 명시, 변수명이 다르면 생략 가능
+        this.modelName += modelName;
     }
 }
