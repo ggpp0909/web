@@ -14,9 +14,11 @@ public class BlackBox {
 
     // 생성자 정의
     BlackBox() {
-        System.out.println("기본 생성자 호출");
-        this.serialNumber = ++counter;
-        System.out.println("새 시리얼 넘버 발급 받았습니다: " + this.serialNumber);
+        // getter, setter 실습 용 주석
+//        System.out.println("기본 생성자 호출");
+//        this.serialNumber = ++counter;
+//        System.out.println("새 시리얼 넘버 발급 받았습니다: " + this.serialNumber);
+
     }
 
     // 생성자도 오버로딩 가능
@@ -80,5 +82,45 @@ public class BlackBox {
         // 앞은 인스턴스 변수, 뒤는 매개변수
         // 두 변수 명이 같을 경우는 this 로 명시, 변수명이 다르면 생략 가능
         this.modelName += modelName;
+    }
+
+    // Getter & Setter
+    String getModelName() {
+        return modelName;
+    }
+
+    void setModelName(String modelName) {
+        this.modelName = modelName;
+    }
+
+    String getResolution() {
+        if (resolution == null || resolution.isEmpty()) {
+            return "판매자에게 문의하세요.";
+        }
+        return resolution;
+    }
+
+    void setResolution(String resolution) {
+        this.resolution = resolution;
+    }
+
+    int getPrice() {
+        return price;
+    }
+
+    void setPrice(int price) {
+        if (price < 100000) {
+            this.price = 100000;
+        } else {
+            this.price = price;
+        }
+    }
+
+    String getColor() {
+        return color;
+    }
+
+    void setColor(String color) {
+        this.color = color;
     }
 }
