@@ -44,7 +44,16 @@ public class BlackBox {
     }
 
     void record() {
-        // 유지보수를 위해 일일히 쓰지않고 호출하기
+        // 유지보수를 위해 일일히 쓰지않고 호출
         record(true, true, 5);
+    }
+
+    // static 이 붙어서 class 메서드, 모든 객체에 공통적으로 적용
+    static void callServiceCenter() {
+        System.out.println("서비스센터로 연결합니다.");
+
+        // 클래스 변수는 클래스 메서드 내에서 수정 가능
+        // 인스턴스 변수는 클래스 메서드 내에서는 직접 접근 불가능
+        canAutoReport = true;
     }
 }
