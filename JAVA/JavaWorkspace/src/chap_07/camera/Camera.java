@@ -4,7 +4,12 @@ public class Camera { // 부모 클래스
     public String name;
 
     public Camera() {
-        this.name = "카메라";
+//        this.name = "카메라";
+        this("카메라");
+    }
+
+    protected Camera(String name) {
+        this.name = name;
     }
 
     public void takePicture() {
