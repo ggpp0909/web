@@ -2,6 +2,15 @@ package chap_07;
 
 public class _10_AccessModifier {
     public static void main(String[] args) {
+        // 캡슐화 (Encapsulation)
+        // 필요한 것들, 연관된 것들 끼리만 하나의 캡슐에 넣는다는 것을 의미
+        // 블랙박스클래스에는 블랙박스에 관련된 것만 넣기
+
+        // 정보 은닉 (information hiding)
+        // 정보를 숨김, 블랙박스 가격을 마음대로 바꾸던가 그런것을 막는것
+        // 객체내의 변수나 메서드의 직접 접근을 막고 허용하는 방법으로만 접근할 수 있도록 막아주는
+        // 접근 제어자, public, private 등
+
         // 접근 제어자
         // private : 해당 클래스 내에서만 접근 가능
         // public : 모든 클래스에서 접근 가능

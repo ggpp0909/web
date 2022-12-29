@@ -1,11 +1,12 @@
 package chap_07;
 
+// public class 로 정의하는 경우 반드시 자바 파일 이름과 동일해야 함.
 public class BlackBoxRefurbish {
-    String modelName; // 모델 명
+    public String modelName; // 모델 명
     String resolution; // 해상도
     // private 붙였으므로 인스턴스에서 직접 접근 불가
     private int price; // 가격
-    String color; // 색
+    protected String color; // 색
 
     public String getModelName() {
         return modelName;
