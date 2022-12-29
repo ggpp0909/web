@@ -1,7 +1,8 @@
 package chap_08;
 
 import chap_07.BlackBoxRefurbish;
-
+// chap_07 에 있는 모든 클래스를 가져다 쓰고 싶으면 * 씀
+// import chap_07.*;
 public class _00_AccessModifierTest {
     public static void main(String[] args) {
         BlackBoxRefurbish b1 = new BlackBoxRefurbish();
