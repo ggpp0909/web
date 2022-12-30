@@ -38,7 +38,7 @@ public class _04_FunctionalInterface {
         ConvertibleWithReturn c3 = (d, w) -> d * w;
         int result = c3.convert(20, 1400);
         System.out.println(result);
-        
+
     }
 
     public static void convertUSD(Convertible converter, int USD) {
