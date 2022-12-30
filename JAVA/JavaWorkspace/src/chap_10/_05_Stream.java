@@ -36,7 +36,8 @@ public class _05_Stream {
         // 최종 연산 (Terminal Operation) : count, min, max, sum, forEach, anyMatch, allMatch, ...
 
         // 90점 이상인 점수만 출력
-        Arrays.stream(scores).filter(x -> x >= 90).forEach(x -> System.out.println(x));
+        Arrays.stream(scores).filter(x -> x >= 90)
+                .forEach(x -> System.out.println(x));
         // Arrays.stream(scores).filter(x -> x >= 90).forEach(System.out::println); // 위와 동일
 
         // 90점 이상인 사람의 수
@@ -48,14 +49,18 @@ public class _05_Stream {
         System.out.println(sum);
 
         // 90점 이상인 점수들을 정렬
-        Arrays.stream(scores).filter(x -> x >= 90).sorted().forEach(System.out::println);
+        Arrays.stream(scores).filter(x -> x >= 90)
+                .sorted()
+                .forEach(System.out::println);
 
         // "Python", "Java", "C", "C#"
         // C로 시작하는 프로그래밍 언어
-        Arrays.stream(langs).filter(x -> x.startsWith("C")).forEach(System.out::println);
+        Arrays.stream(langs).filter(x -> x.startsWith("C"))
+                .forEach(System.out::println);
 
         // Java 라는 글자를 포함하는 언어
-        Arrays.stream(langs).filter(x -> x.contains("Java")).forEach(System.out::println);
+        Arrays.stream(langs).filter(x -> x.contains("Java"))
+                .forEach(System.out::println);
 
         // 글자 개수가 4글자 이하인 언어를 정렬해서 출력
         Arrays.stream(langs).filter(x -> x.length() <= 4)
