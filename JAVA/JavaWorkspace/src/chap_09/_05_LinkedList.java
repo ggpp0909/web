@@ -1,4 +1,4 @@
-package chap_09.user;
+package chap_09;
 
 import java.util.Collections;
 import java.util.LinkedList;

@@ -2,11 +2,11 @@ package chap_09;
 
 import java.util.HashSet;
 
-public class _05_HashSet {
+public class _06_HashSet {
     public static void main(String[] args) {
         // 세트
         // 중복 X, 순서보장 되지 않음
-        // 세트를 쓰고 싶은데 순서보장하고싶다? -> LinkedHashSet 사용
+        // 세트를 쓰고 싶은데 순서보장하고싶다? -> LinkedHashSet 사
 
         HashSet<String> set = new HashSet<>();
         set.add("삼겹살");
