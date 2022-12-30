@@ -8,7 +8,7 @@ public class _03_File {
         String fileName = "test.txt";
         File file = new File(fileName);
         try {
-            boolean newFile = file.createNewFile();// 파일 생성
+            file.createNewFile(); // 파일 생성
             if (file.exists()) {
                 System.out.println("파일이름: " + file.getName());
                 System.out.println("파일 절대 경로: " + file.getAbsolutePath());
