@@ -7,6 +7,11 @@ public class CleanRunnable implements Runnable {
         System.out.println("직원 청소 시작 (Runnable)");
         for (int i = 0; i < 10; i += 2) {
             System.out.println("직원이 " + i + "번째 방 청소");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
         System.out.println("직원 청소 끝 (Runnable)");
     }

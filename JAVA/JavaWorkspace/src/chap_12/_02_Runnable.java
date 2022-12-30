@@ -1,4 +1,6 @@
-package chap_12.clean;
+package chap_12;
+
+import chap_12.clean.CleanRunnable;
 
 public class _02_Runnable {
     public static void main(String[] args) {
