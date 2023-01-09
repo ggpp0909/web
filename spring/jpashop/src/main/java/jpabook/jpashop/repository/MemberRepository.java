@@ -13,7 +13,7 @@ import java.util.List;
 public class MemberRepository {
 
 //    @PersistenceContext // jpa 의 엔티티매니저를 스프링이 자동으로 주입시켜준다.
-    private EntityManager em;
+    private final EntityManager em;
 
     public void save(Member member) {
         em.persist(member);
