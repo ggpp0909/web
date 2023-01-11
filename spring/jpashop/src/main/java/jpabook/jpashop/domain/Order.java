@@ -51,4 +51,46 @@ public class Order {
         this.delivery = delivery;
         delivery.setOrder(this);
     }
+
+    // 생성 메서드 //
+    // 여러 연관관계가 얽힌 복잡한 생성은 별도의 생성 메서드가 있으면 좋다.
+    // 이렇게하면 order 가 쫙 세팅을 해서 이런스타일로 하면 앞으로 생성하는 지점 변경할거면 여기만 변경하면 됨
+    public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems) { // ...문법으로 여러개 넘길 수 있음
+        Order order = new Order();
+        order.setMember(member);
+        order.setDelivery(delivery);
+        for (OrderItem orderItem : orderItems) {
+            order.addOrderItem(orderItem);
+        }
+        order.setStatus(OrderStatus.ORDER);
+        order.setOrderDate(LocalDateTime.now());
+        return order;
+    }
+
+    /**
+     * 주문 취소
+     */
+    public void cancel() {
+        if (delivery.getStatus() == DeliveryStatus.COMP) {
+            throw new IllegalStateException("이미 배송완료된 상품은 취소가 불가능 합니다.");
+        }
+
+        this.setStatus(OrderStatus.CANCEL);
+        for (OrderItem orderItem : orderItems) {
+            orderItem.cancel(); // 원상복구
+        }
+    }
+
+
+    // 조회 로직 //
+    /**
+     * 전체 주문 가격 조회
+     */
+    public int getTotalPrice() {
+        int totalPrice = 0;
+        for (OrderItem orderItem : orderItems) {
+            totalPrice += orderItem.getTotalPrice();
+        }
+        return totalPrice;
+    }
 }
