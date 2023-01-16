@@ -28,7 +28,7 @@ public class OrderRepository {
 
     // 검색기능 동적쿼리 처리 //
 
-    /*
+
     // JPQL로 처리
     public List<Order> findAllByString(OrderSearch orderSearch) {
         //language=JPAQL
@@ -64,7 +64,7 @@ public class OrderRepository {
         }
         return query.getResultList();
     }
-    */
+
 
 
     // JPA Criteria로 처리

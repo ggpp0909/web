@@ -8,6 +8,7 @@ import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.repository.ItemRepository;
 import jpabook.jpashop.repository.MemberRepository;
 import jpabook.jpashop.repository.OrderRepository;
+import jpabook.jpashop.repository.OrderSearch;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -58,8 +59,9 @@ public class OrderService {
         // JPA 의 강점이 여기서 나옴, 엔티티안에 있는 데이터가 바뀌면 JPA 가 변경된 내역들 찾아서(더티체킹) 업데이트 쿼리를 날려줌
     }
 
-//    // 검색
-//    public List<Order> findOrders(OrderSearch orderSearch) {
-//        return orderRepository.findAll();
-//    }
+    // 검색
+    // 이런 단순 조회같은경우는 컨트롤러에서 바로 사용해도 괜찮다
+    public List<Order> findOrders(OrderSearch orderSearch) {
+        return orderRepository.findAllByCriteria(orderSearch);
+    }
 }
